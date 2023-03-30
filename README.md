@@ -1,1 +1,1 @@
-# Toast-Notification-JS
+Translator-JS
