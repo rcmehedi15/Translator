@@ -4,26 +4,20 @@ const targetText = document.getElementById('targetText');
 const targetLang = document.getElementById('targetLang');
 
 translateBtn.addEventListener('click', () => {
-  const source = sourceText.value.trim();
-  const lang = targetLang.value;
+	// Validate input
+	if (sourceText.value === '') {
+		alert('Please enter text to translate.');
+		return;
+	}
 
-  if (!source) {
-    alert('Please enter a source text.');
-    return;
-  }
-
-  if (lang === 'auto') {
-    alert('Please select a target language.');
-    return;
-  }
-
-  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&q=${encodeURI(source)}`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const translation = data[0][0][0];
-      targetText.value = translation;
-    })
-    .catch(error => console.error(error));
+	const source = sourceText.value;
+	const lang = targetLang.value;
+	const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encodeURI(source)}`;
+	fetch(url)
+		.then(response => response.json())
+		.then(data => {
+			const translation = data[0][0][0];
+			targetText.value = translation;
+		})
+		.catch(error => console.error(error));
 });

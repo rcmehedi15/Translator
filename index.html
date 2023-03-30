@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Translator</title>
+	<title>Language Translator</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
-		<h1> Translator</h1>
-    
-		<label for="sourceText">Enter Text:</label>
-		<textarea id="sourceText" placeholder="Type English Text"></textarea>
-		<label for="targetLang">Translate to:</label>
+	<h1>Language Translator</h1>
+  <main>
+	<div>
+		<label for="sourceText">Source Text (English):</label>
+		<textarea id="sourceText" placeholder="Enter text to translate"></textarea>
+	</div>
+	<div>
+		<label for="targetLang">Target Language:</label>
 		<select id="targetLang">
-			<option value="fr">French</option>
-			<option value="de">German</option>
-			<option value="es">Spanish</option>
+			<option value="bn">Bangla</option>
+			<option value="hi">Hindi</option>
+			<option value="ar">Arabic</option>
+			<option value="en">English</option>
 		</select>
-		<button id="translateBtn">Translate</button>
-		<label for="targetText">Translation:</label>
+	</div>
+	<div>
+		<label for="targetText">Target Text:</label>
 		<textarea id="targetText" readonly></textarea>
-	</main>
+	</div>
+	<button id="translateBtn">Translate</button>
+</main>
 	<script src="js/app.js"></script>
 </body>
 </html>
